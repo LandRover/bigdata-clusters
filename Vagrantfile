@@ -16,8 +16,8 @@ Vagrant.configure(2) do |config|
   config.vm.hostname = 'hadoop-cluster-via-docker.local'
   config.disksize.size = '30GB' # vagrant plugin install vagrant-disksize
 
-  config.vm.synced_folder ".", "/vagrant", disabled: true
-  
+  config.vm.synced_folder ".", "/vagrant", disabled: false
+    
   config.vm.provider 'virtualbox' do |vb|
     vb.name = config.vm.hostname
     vb.customize ['modifyvm', :id, '--cpus', cpus]
