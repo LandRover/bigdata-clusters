@@ -14,12 +14,22 @@ if [ ! -f /etc/apt/sources.list.d/docker.list ]; then
     sudo apt install -y -q  docker-ce
 fi
 
+
+# docker-compose
+if [ ! -f /usr/local/bin/docker-compose ]; then
+    curl -L https://github.com/docker/compose/releases/download/1.24.1/docker-compose-`uname -s`-`uname -m` -o docker-compose
+    chmod +x docker-compose
+    sudo mv docker-compose /usr/local/bin/docker-compose
+fi
+
+
 # docker-machine
 if [ ! -f /usr/local/bin/docker-machine ]; then
-    curl -L "https://github.com/docker/machine/releases/download/v0.16.1/docker-machine-$(uname -s)-$(uname -m)" > docker-machine
+    curl -L "https://github.com/docker/machine/releases/download/v0.16.1/docker-machine-$(uname -s)-$(uname -m)" -o docker-machine
     chmod +x docker-machine
     sudo mv docker-machine /usr/local/bin/docker-machine
 fi
+
 
 # add vagrant to docker for dockering
 # https://stackoverflow.com/questions/48568172/docker-sock-permission-denied
