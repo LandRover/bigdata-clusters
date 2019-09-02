@@ -1,7 +1,6 @@
-FROM openjdk:8u222-jdk-stretch
+FROM jdk-base:latest
 
 LABEL version="0.1.0"
-
 
 ENV DAEMON_RUN=true
 ENV SPARK_VERSION=2.4.3
@@ -11,9 +10,7 @@ ENV SCALA_HOME=/usr/share/scala
 ENV SPARK_HOME=/spark
 ENV SBT_VERSION=1.2.8
 
-
-RUN apt update && apt install -q -y  ca-certificates wget curl tar vim software-properties-common ssh net-tools jq
-
+RUN apt update && apt install -q -y  software-properties-common jq
 
 # Scala installation
 RUN cd "/tmp" \
