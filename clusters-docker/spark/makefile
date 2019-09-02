@@ -1,8 +1,8 @@
 build:
-	docker build -t spark-base:latest ./src/clusters-docker/spark-base
-	docker build -t spark-master:latest ./src/clusters-docker/spark-master
-	docker build -t spark-worker:latest ./src/clusters-docker/spark-worker
-	docker build -t spark-submit:latest ./src/clusters-docker/spark-submit
+	docker build -t spark-base:latest ./src/docker/spark-base
+	docker build -t spark-master:latest ./src/docker/spark-master
+	docker build -t spark-worker:latest ./src/docker/spark-worker
+	docker build -t spark-submit:latest ./src/docker/spark-submit
 
 
 start:
