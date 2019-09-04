@@ -1,1 +1,0 @@
-# spark-cluster-via-docker
