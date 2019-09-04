@@ -112,9 +112,8 @@ services:
     container_name: zeppelin
     ports:
       - "8080:8080"
-    expose:
-      - "8443"
-      - "4040"
+      - "8443:8443"
+      - "4040:4040"
     volumes:
       - ./zeppelin/datadrive:/datadrive
       - ./zeppelin/pyspark-notebooks:/zeppelin/notebook
