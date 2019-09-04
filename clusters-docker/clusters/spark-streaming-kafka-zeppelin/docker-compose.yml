@@ -22,7 +22,6 @@ services:
     environment:
       KAFKA_ADVERTISED_HOST_NAME: 172.20.0.12
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
-      KAFKA_ADVERTISED_PORT: 9092
       KAFKA_OPTS: -javaagent:/prometheus/jmx_prometheus_javaagent-0.12.0.jar=8080:/prometheus/kafka-0-8-2.yml
     volumes:
       - ./kafka/prometheus:/prometheus
@@ -43,7 +42,6 @@ services:
     environment:
       KAFKA_ADVERTISED_HOST_NAME: 172.20.0.13
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
-      KAFKA_ADVERTISED_PORT: 9092
       KAFKA_OPTS: -javaagent:/prometheus/jmx_prometheus_javaagent-0.12.0.jar=8080:/prometheus/kafka-0-8-2.yml
     volumes:
       - ./kafka/prometheus:/prometheus
@@ -88,22 +86,6 @@ services:
       - "zookeeper"
       - "kafka1"
       - "kafka2"
-
-
-  grafana:
-    image: grafana/grafana:6.3.5
-    container_name: grafana
-    ports:
-      - "3000:3000"
-    environment:
-      - GF_SECURITY_ADMIN_PASSWORD=password
-    volumes:
-      - ./grafana/provisioning/:/etc/grafana/provisioning/
-    networks:
-      kafka_network:
-        ipv4_address: 172.20.0.16
-    depends_on:
-      - "prometheus"
 
 
   zeppelin:

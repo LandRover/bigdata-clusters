@@ -10,7 +10,7 @@ ADD https://www.apache.org/dist/zookeeper/zookeeper-${ZOOKEEPER_VERSION}/${ZOOKE
 ADD https://www.apache.org/dist/zookeeper/zookeeper-${ZOOKEEPER_VERSION}/${ZOOKEEPER_DIR}.tar.gz.sha512 /usr/src/
 
 # Verify files
-RUN cd /usr/src/ && sha512sum -c /usr/src/${ZOOKEEPER_DIR}.tar.gz.sha512
+RUN cd /usr/src && sha512sum -c /usr/src/${ZOOKEEPER_DIR}.tar.gz.sha512
 
 # Install
 RUN tar -xzf /usr/src/${ZOOKEEPER_DIR}.tar.gz -C /opt
