@@ -1,0 +1,210 @@
+{
+  "paragraphs": [
+    {
+      "text": "%sh\npip install kafka-python",
+      "user": "anonymous",
+      "dateUpdated": "2019-09-03 19:32:02.396",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/sh"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Collecting kafka-python\n  Downloading https://files.pythonhosted.org/packages/82/39/aebe3ad518513bbb2260dd84ac21e5c30af860cc4c95b32acbd64b9d9d0d/kafka_python-1.4.6-py2.py3-none-any.whl (259kB)\nInstalling collected packages: kafka-python\nSuccessfully installed kafka-python-1.4.6\nYou are using pip version 8.1.2, however version 19.2.3 is available.\nYou should consider upgrading via the \u0027pip install --upgrade pip\u0027 command.\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1556538860554_-1121550077",
+      "id": "20190429-115420_1698791579",
+      "dateCreated": "2019-04-29 11:54:20.554",
+      "dateStarted": "2019-09-03 19:32:02.889",
+      "dateFinished": "2019-09-03 19:32:11.901",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "",
+      "text": "%producer.pyspark\n\ndf \u003d (spark.read.format(\"com.databricks.spark.csv\")\n        .option(\"header\", \"true\")\n        .option(\"inferSchema\",\"true\")\n        .load(\"/datadrive/census_1000.csv\"))\n        \ndf_list \u003d df.collect()\ndf.show()",
+      "user": "anonymous",
+      "dateUpdated": "2019-09-03 19:32:14.496",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "editorHide": false,
+        "tableHide": false,
+        "title": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+---+---+-----------------+-------------+-------------+--------------------+------------------+--------------+-------------------+-------+------------+------------+--------------+------+\n|_c0|age|        workclass|    education|education-num|      marital-status|        occupation|  relationship|          ethnicity| gender|capital-gain|capital-loss|hours-per-week|  loan|\n+---+---+-----------------+-------------+-------------+--------------------+------------------+--------------+-------------------+-------+------------+------------+--------------+------+\n|  0| 39|        State-gov|    Bachelors|           13|       Never-married|      Adm-clerical| Not-in-family|              White|   Male|        2174|           0|            40| \u003c\u003d50K|\n|  1| 50| Self-emp-not-inc|    Bachelors|           13|  Married-civ-spouse|   Exec-managerial|       Husband|              White|   Male|           0|           0|            13| \u003c\u003d50K|\n|  2| 38|          Private|      HS-grad|            9|            Divorced| Handlers-cleaners| Not-in-family|              White|   Male|           0|           0|            40| \u003c\u003d50K|\n|  3| 53|          Private|         11th|            7|  Married-civ-spouse| Handlers-cleaners|       Husband|              Black|   Male|           0|           0|            40| \u003c\u003d50K|\n|  4| 28|          Private|    Bachelors|           13|  Married-civ-spouse|    Prof-specialty|          Wife|              Black| Female|           0|           0|            40| \u003c\u003d50K|\n|  5| 37|          Private|      Masters|           14|  Married-civ-spouse|   Exec-managerial|          Wife|              White| Female|           0|           0|            40| \u003c\u003d50K|\n|  6| 49|          Private|          9th|            5| Married-spouse-a...|     Other-service| Not-in-family|              Black| Female|           0|           0|            16| \u003c\u003d50K|\n|  7| 52| Self-emp-not-inc|      HS-grad|            9|  Married-civ-spouse|   Exec-managerial|       Husband|              White|   Male|           0|           0|            45|  \u003e50K|\n|  8| 31|          Private|      Masters|           14|       Never-married|    Prof-specialty| Not-in-family|              White| Female|       14084|           0|            50|  \u003e50K|\n|  9| 42|          Private|    Bachelors|           13|  Married-civ-spouse|   Exec-managerial|       Husband|              White|   Male|        5178|           0|            40|  \u003e50K|\n| 10| 37|          Private| Some-college|           10|  Married-civ-spouse|   Exec-managerial|       Husband|              Black|   Male|           0|           0|            80|  \u003e50K|\n| 11| 30|        State-gov|    Bachelors|           13|  Married-civ-spouse|    Prof-specialty|       Husband| Asian-Pac-Islander|   Male|           0|           0|            40|  \u003e50K|\n| 12| 23|          Private|    Bachelors|           13|       Never-married|      Adm-clerical|     Own-child|              White| Female|           0|           0|            30| \u003c\u003d50K|\n| 13| 32|          Private|   Assoc-acdm|           12|       Never-married|             Sales| Not-in-family|              Black|   Male|           0|           0|            50| \u003c\u003d50K|\n| 14| 40|          Private|    Assoc-voc|           11|  Married-civ-spouse|      Craft-repair|       Husband| Asian-Pac-Islander|   Male|           0|           0|            40|  \u003e50K|\n| 15| 34|          Private|      7th-8th|            4|  Married-civ-spouse|  Transport-moving|       Husband| Amer-Indian-Eskimo|   Male|           0|           0|            45| \u003c\u003d50K|\n| 16| 25| Self-emp-not-inc|      HS-grad|            9|       Never-married|   Farming-fishing|     Own-child|              White|   Male|           0|           0|            35| \u003c\u003d50K|\n| 17| 32|          Private|      HS-grad|            9|       Never-married| Machine-op-inspct|     Unmarried|              White|   Male|           0|           0|            40| \u003c\u003d50K|\n| 18| 38|          Private|         11th|            7|  Married-civ-spouse|             Sales|       Husband|              White|   Male|           0|           0|            50| \u003c\u003d50K|\n| 19| 43| Self-emp-not-inc|      Masters|           14|            Divorced|   Exec-managerial|     Unmarried|              White| Female|           0|           0|            45|  \u003e50K|\n+---+---+-----------------+-------------+-------------+--------------------+------------------+--------------+-------------------+-------+------------+------------+--------------+------+\nonly showing top 20 rows\n\n"
+          }
+        ]
+      },
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            "http://172.20.0.19:4040/jobs/job?id\u003d0",
+            "http://172.20.0.19:4040/jobs/job?id\u003d1",
+            "http://172.20.0.19:4040/jobs/job?id\u003d2",
+            "http://172.20.0.19:4040/jobs/job?id\u003d3"
+          ],
+          "interpreterSettingId": "producer"
+        }
+      },
+      "apps": [],
+      "jobName": "paragraph_1556120282490_1275576273",
+      "id": "20190424-153802_2004623441",
+      "dateCreated": "2019-04-24 15:38:02.490",
+      "dateStarted": "2019-09-03 19:32:14.742",
+      "dateFinished": "2019-09-03 19:34:01.304",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%producer.pyspark\nimport time\nimport json\nimport random\nimport logging\n\nfrom kafka import KafkaProducer\nfrom kafka.errors import KafkaError\n\nKAFKA_BROKER \u003d \"172.20.0.12:9092\"\nKAFKA_TOPIC \u003d \"default_topic\"\n\nproducer \u003d KafkaProducer(bootstrap_servers\u003d[KAFKA_BROKER])\nindex \u003d 0\n\nwhile True:\n    \n    row_dict \u003d df_list[index].asDict()\n    \n    future \u003d producer.send(\n        topic\u003dKAFKA_TOPIC, \n        key\u003dstr(row_dict[\"_c0\"]).encode(\"utf-8\"),\n        value\u003djson.dumps(row_dict).encode(\"utf-8\"))\n    \n    try:\n        record_metadata \u003d future.get(timeout\u003d10)\n    except KafkaError:\n        # Decide what to do if produce request failed...\n        logging.exception(\"Error\")\n        pass\n    \n    producer.flush()\n    \n    index +\u003d 1\n    time.sleep(random.uniform(0.1,3.0))",
+      "user": "anonymous",
+      "dateUpdated": "2019-09-03 19:37:13.423",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "ERROR",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[0;31m\u001b[0m\n\u001b[0;31mKafkaTimeoutError\u001b[0mTraceback (most recent call last)\n\u001b[0;32m\u003cipython-input-6-4d2ebedb523a\u003e\u001b[0m in \u001b[0;36m\u003cmodule\u003e\u001b[0;34m()\u001b[0m\n\u001b[1;32m     20\u001b[0m         \u001b[0mtopic\u001b[0m\u001b[0;34m\u003d\u001b[0m\u001b[0mKAFKA_TOPIC\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     21\u001b[0m         \u001b[0mkey\u001b[0m\u001b[0;34m\u003d\u001b[0m\u001b[0mstr\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mrow_dict\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;34m\"_c0\"\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mencode\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m\"utf-8\"\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m---\u003e 22\u001b[0;31m         value\u003djson.dumps(row_dict).encode(\"utf-8\"))\n\u001b[0m\u001b[1;32m     23\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     24\u001b[0m     \u001b[0;32mtry\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\n\u001b[0;32m/opt/conda/lib/python2.7/site-packages/kafka/producer/kafka.pyc\u001b[0m in \u001b[0;36msend\u001b[0;34m(self, topic, value, key, headers, partition, timestamp_ms)\u001b[0m\n\u001b[1;32m    562\u001b[0m         \u001b[0mkey_bytes\u001b[0m \u001b[0;34m\u003d\u001b[0m \u001b[0mvalue_bytes\u001b[0m \u001b[0;34m\u003d\u001b[0m \u001b[0mNone\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    563\u001b[0m         \u001b[0;32mtry\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m--\u003e 564\u001b[0;31m             \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0m_wait_on_metadata\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mtopic\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mconfig\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;34m\u0027max_block_ms\u0027\u001b[0m\u001b[0;34m]\u001b[0m \u001b[0;34m/\u001b[0m \u001b[0;36m1000.0\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m    565\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    566\u001b[0m             key_bytes \u003d self._serialize(\n\n\u001b[0;32m/opt/conda/lib/python2.7/site-packages/kafka/producer/kafka.pyc\u001b[0m in \u001b[0;36m_wait_on_metadata\u001b[0;34m(self, topic, max_wait)\u001b[0m\n\u001b[1;32m    689\u001b[0m             \u001b[0;32mif\u001b[0m \u001b[0;32mnot\u001b[0m \u001b[0mmetadata_event\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mis_set\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    690\u001b[0m                 raise Errors.KafkaTimeoutError(\n\u001b[0;32m--\u003e 691\u001b[0;31m                     \"Failed to update metadata after %.1f secs.\" % (max_wait,))\n\u001b[0m\u001b[1;32m    692\u001b[0m             \u001b[0;32melif\u001b[0m \u001b[0mtopic\u001b[0m \u001b[0;32min\u001b[0m \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0m_metadata\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0munauthorized_topics\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    693\u001b[0m                 \u001b[0;32mraise\u001b[0m \u001b[0mErrors\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mTopicAuthorizationFailedError\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mtopic\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\n\u001b[0;31mKafkaTimeoutError\u001b[0m: KafkaTimeoutError: Failed to update metadata after 60.0 secs."
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1556124778874_694089528",
+      "id": "20190424-165258_808657351",
+      "dateCreated": "2019-04-24 16:52:58.874",
+      "dateStarted": "2019-09-03 19:37:13.584",
+      "dateFinished": "2019-09-03 19:38:15.840",
+      "status": "ERROR",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%consumer.pyspark\nimport json\nfrom pyspark.streaming.kafka import KafkaUtils\nfrom pyspark.streaming import StreamingContext\n\ntry:\n    # Reset streaming context if exists\n    ssc.stop(stopSparkContext\u003dFalse, stopGraceFully\u003dFalse)\nexcept:\n    pass\n\nssc \u003d StreamingContext(sc, batchDuration\u003d2)\n\nREDDIT_TOPIC \u003d \"default_topic\"\nKAFKA_BROKERS \u003d \"172.20.0.12:9092,172.20.0.13:9092\"\n\nstream \u003d KafkaUtils.createDirectStream(\n                            ssc, \n                            [REDDIT_TOPIC], \n                            {\"metadata.broker.list\": KAFKA_BROKERS})\n\nstream \u003d stream.map(lambda x: json.loads(x[1]))\nstream \u003d stream.map(lambda x: (x[\"_c0\"], x[\"loan\"]))\n\nstream.pprint()\n\nssc.start()\nssc.awaitTermination()",
+      "user": "anonymous",
+      "dateUpdated": "2019-09-03 19:37:17.710",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "ERROR",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[0;31m\u001b[0m\n\u001b[0;31mPy4JJavaError\u001b[0mTraceback (most recent call last)\n\u001b[0;32m\u003cipython-input-4-46c187084fd6\u003e\u001b[0m in \u001b[0;36m\u003cmodule\u003e\u001b[0;34m()\u001b[0m\n\u001b[1;32m     17\u001b[0m                             \u001b[0mssc\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     18\u001b[0m                             \u001b[0;34m[\u001b[0m\u001b[0mREDDIT_TOPIC\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m---\u003e 19\u001b[0;31m                             {\"metadata.broker.list\": KAFKA_BROKERS})\n\u001b[0m\u001b[1;32m     20\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     21\u001b[0m \u001b[0mstream\u001b[0m \u001b[0;34m\u003d\u001b[0m \u001b[0mstream\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mmap\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;32mlambda\u001b[0m \u001b[0mx\u001b[0m\u001b[0;34m:\u001b[0m \u001b[0mjson\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mloads\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mx\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;36m1\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\n\u001b[0;32m/zeppelin/interpreter/spark/pyspark/pyspark.zip/pyspark/streaming/kafka.py\u001b[0m in \u001b[0;36mcreateDirectStream\u001b[0;34m(ssc, topics, kafkaParams, fromOffsets, keyDecoder, valueDecoder, messageHandler)\u001b[0m\n\u001b[1;32m    128\u001b[0m             \u001b[0mfunc\u001b[0m \u001b[0;34m\u003d\u001b[0m \u001b[0mfuncWithoutMessageHandler\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    129\u001b[0m             jstream \u003d helper.createDirectStreamWithoutMessageHandler(\n\u001b[0;32m--\u003e 130\u001b[0;31m                 ssc._jssc, kafkaParams, set(topics), jfromOffsets)\n\u001b[0m\u001b[1;32m    131\u001b[0m         \u001b[0;32melse\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    132\u001b[0m             \u001b[0mser\u001b[0m \u001b[0;34m\u003d\u001b[0m \u001b[0mAutoBatchedSerializer\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mPickleSerializer\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\n\u001b[0;32m/zeppelin/interpreter/spark/pyspark/py4j-0.10.4-src.zip/py4j/java_gateway.py\u001b[0m in \u001b[0;36m__call__\u001b[0;34m(self, *args)\u001b[0m\n\u001b[1;32m   1131\u001b[0m         \u001b[0manswer\u001b[0m \u001b[0;34m\u003d\u001b[0m \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mgateway_client\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0msend_command\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mcommand\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m   1132\u001b[0m         return_value \u003d get_return_value(\n\u001b[0;32m-\u003e 1133\u001b[0;31m             answer, self.gateway_client, self.target_id, self.name)\n\u001b[0m\u001b[1;32m   1134\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m   1135\u001b[0m         \u001b[0;32mfor\u001b[0m \u001b[0mtemp_arg\u001b[0m \u001b[0;32min\u001b[0m \u001b[0mtemp_args\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\n\u001b[0;32m/zeppelin/interpreter/spark/pyspark/pyspark.zip/pyspark/sql/utils.py\u001b[0m in \u001b[0;36mdeco\u001b[0;34m(*a, **kw)\u001b[0m\n\u001b[1;32m     61\u001b[0m     \u001b[0;32mdef\u001b[0m \u001b[0mdeco\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m*\u001b[0m\u001b[0ma\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m**\u001b[0m\u001b[0mkw\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     62\u001b[0m         \u001b[0;32mtry\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m---\u003e 63\u001b[0;31m             \u001b[0;32mreturn\u001b[0m \u001b[0mf\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m*\u001b[0m\u001b[0ma\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m**\u001b[0m\u001b[0mkw\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m     64\u001b[0m         \u001b[0;32mexcept\u001b[0m \u001b[0mpy4j\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mprotocol\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mPy4JJavaError\u001b[0m \u001b[0;32mas\u001b[0m \u001b[0me\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     65\u001b[0m             \u001b[0ms\u001b[0m \u001b[0;34m\u003d\u001b[0m \u001b[0me\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mjava_exception\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mtoString\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\n\u001b[0;32m/zeppelin/interpreter/spark/pyspark/py4j-0.10.4-src.zip/py4j/protocol.py\u001b[0m in \u001b[0;36mget_return_value\u001b[0;34m(answer, gateway_client, target_id, name)\u001b[0m\n\u001b[1;32m    317\u001b[0m                 raise Py4JJavaError(\n\u001b[1;32m    318\u001b[0m                     \u001b[0;34m\"An error occurred while calling {0}{1}{2}.\\n\"\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m--\u003e 319\u001b[0;31m                     format(target_id, \".\", name), value)\n\u001b[0m\u001b[1;32m    320\u001b[0m             \u001b[0;32melse\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    321\u001b[0m                 raise Py4JError(\n\n\u001b[0;31mPy4JJavaError\u001b[0m: An error occurred while calling o54.createDirectStreamWithoutMessageHandler.\n: org.apache.spark.SparkException: org.apache.spark.SparkException: Error getting partition metadata for \u0027default_topic\u0027. Does the topic exist?\norg.apache.spark.SparkException: Error getting partition metadata for \u0027default_topic\u0027. Does the topic exist?\n\tat org.apache.spark.streaming.kafka.KafkaCluster$$anonfun$checkErrors$1.apply(KafkaCluster.scala:373)\n\tat org.apache.spark.streaming.kafka.KafkaCluster$$anonfun$checkErrors$1.apply(KafkaCluster.scala:373)\n\tat scala.util.Either.fold(Either.scala:98)\n\tat org.apache.spark.streaming.kafka.KafkaCluster$.checkErrors(KafkaCluster.scala:372)\n\tat org.apache.spark.streaming.kafka.KafkaUtils$.getFromOffsets(KafkaUtils.scala:222)\n\tat org.apache.spark.streaming.kafka.KafkaUtilsPythonHelper.createDirectStream(KafkaUtils.scala:720)\n\tat org.apache.spark.streaming.kafka.KafkaUtilsPythonHelper.createDirectStreamWithoutMessageHandler(KafkaUtils.scala:688)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\n\tat java.lang.reflect.Method.invoke(Method.java:498)\n\tat py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)\n\tat py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:357)\n\tat py4j.Gateway.invoke(Gateway.java:280)\n\tat py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)\n\tat py4j.commands.CallCommand.execute(CallCommand.java:79)\n\tat py4j.GatewayConnection.run(GatewayConnection.java:214)\n\tat java.lang.Thread.run(Thread.java:748)\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1556022009133_-1199138898",
+      "id": "20190423-122009_873241770",
+      "dateCreated": "2019-04-23 12:20:09.133",
+      "dateStarted": "2019-09-03 19:37:18.088",
+      "dateFinished": "2019-09-03 19:39:01.089",
+      "status": "ERROR",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%consumer.pyspark\n",
+      "user": "anonymous",
+      "dateUpdated": "2019-04-29 14:30:43.654",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1556548243653_1901045126",
+      "id": "20190429-143043_1027088896",
+      "dateCreated": "2019-04-29 14:30:43.653",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "Example Kafka Spark Streaming",
+  "id": "2EAB941ZD",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {
+    "producer:shared_process": [],
+    "sh:shared_process": [],
+    "consumer:shared_process": []
+  },
+  "config": {
+    "isZeppelinNotebookCronEnable": false,
+    "looknfeel": "default",
+    "personalizedMode": "false"
+  },
+  "info": {}
+}
