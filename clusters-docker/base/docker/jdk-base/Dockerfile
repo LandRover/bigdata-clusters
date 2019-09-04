@@ -1,26 +1,21 @@
 FROM debian-base:latest
 
-ENV JAVA_VERSION 8u222b10
-ENV JAVA_TAR_URL "https://github.com/AdoptOpenJDK/openjdk8-binaries/releases/download/jdk8u222-b10"
+ARG JDK_VERSION=8u222-b10
+ARG JDK_VERSION_STRICT=8u222b10
+ARG JDK_FILENAME="OpenJDK8U-jdk_x64_linux_hotspot_${JDK_VERSION_STRICT}.tar.gz"
 
-RUN set -eux; \
-    ARCH="$(dpkg --print-architecture)"; \
-    case "${ARCH}" in \
-       amd64|x86_64) \
-         ESUM='37356281345b93feb4212e6267109b4409b55b06f107619dde4960e402bafa77'; \
-         BINARY_URL="${JAVA_TAR_URL}/OpenJDK8U-jdk_x64_linux_hotspot_${JAVA_VERSION}.tar.gz"; \
-         ;; \
-       *) \
-         echo "Unsupported arch: ${ARCH}"; \
-         exit 1; \
-         ;; \
-    esac; \
-    wget -qO - --no-check-certificate ${BINARY_URL} /usr/src/openjdk.tar.gz \
-    echo "${ESUM} */usr/src/openjdk.tar.gz" | sha256sum -c -; \
-    mkdir -p /opt/java/openjdk; \
-    cd /opt/java/openjdk; \
-    tar -xf /usr/src/openjdk.tar.gz --strip-components=1; \
-    rm -rf /usr/src/openjdk.tar.gz;
+ADD https://github.com/AdoptOpenJDK/openjdk8-binaries/releases/download/jdk${JDK_VERSION}/${JDK_FILENAME} /usr/src/
+ADD https://github.com/AdoptOpenJDK/openjdk8-binaries/releases/download/jdk${JDK_VERSION}/${JDK_FILENAME}.sha256.txt /usr/src/
 
+# Verify files
+RUN cd /usr/src && sha256sum -c /usr/src/${JDK_FILENAME}.sha256.txt
+
+# Install
+RUN mkdir -p /opt/java/openjdk-${JDK_VERSION} \
+ && tar -xf /usr/src/${JDK_FILENAME} --strip-components=1 -C /opt/java/openjdk-${JDK_VERSION} \
+ && ln -s /opt/java/openjdk-${JDK_VERSION} /opt/java/openjdk \
+ && rm -rf /usr/src/${JDK_FILENAME} /usr/src/${JDK_FILENAME}.sha256.txt
+
+# Set global path for java
 ENV JAVA_HOME=/opt/java/openjdk \
     PATH="/opt/java/openjdk/bin:$PATH"
