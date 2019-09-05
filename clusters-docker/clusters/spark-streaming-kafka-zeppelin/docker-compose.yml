@@ -88,6 +88,22 @@ services:
       - "kafka2"
 
 
+  grafana:
+    image: grafana/grafana:6.3.5
+    container_name: grafana
+    ports:
+      - "3000:3000"
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=password
+    volumes:
+      - ./grafana/provisioning/:/etc/grafana/provisioning/
+    networks:
+      kafka_network:
+        ipv4_address: 172.20.0.16
+    depends_on:
+      - "prometheus"
+
+
   zeppelin:
     image: apache/zeppelin:0.8.1
     hostname: zeppelin
