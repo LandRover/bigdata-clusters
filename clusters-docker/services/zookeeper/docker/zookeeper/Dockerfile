@@ -13,13 +13,9 @@ ADD https://www.apache.org/dist/zookeeper/zookeeper-${ZOOKEEPER_VERSION}/${ZOOKE
 RUN cd /usr/src && sha512sum -c /usr/src/${ZOOKEEPER_DIR}.tar.gz.sha512
 
 # Install
-RUN tar -xzf /usr/src/${ZOOKEEPER_DIR}.tar.gz -C /opt
-
-# Cleaner link
-RUN ln -s ${ZOOKEEPER_HOME_VER} ${ZOOKEEPER_HOME}
-
-# Cleanup src files
-RUN rm -rf /usr/src/${ZOOKEEPER_DIR}.tar.gz /usr/src/${ZOOKEEPER_DIR}.tar.gz.sha512
+RUN tar -xzf /usr/src/${ZOOKEEPER_DIR}.tar.gz -C /opt \
+ && ln -s ${ZOOKEEPER_HOME_VER} ${ZOOKEEPER_HOME} \
+ && rm -rf /usr/src/${ZOOKEEPER_DIR}.tar.gz /usr/src/${ZOOKEEPER_DIR}.tar.gz.sha512
 
 # Copy config file
 RUN mv ${ZOOKEEPER_HOME}/conf/zoo_sample.cfg ${ZOOKEEPER_HOME}/conf/zoo.cfg

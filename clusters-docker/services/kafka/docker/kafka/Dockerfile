@@ -12,20 +12,16 @@ ENV PATH=${PATH}:${KAFKA_HOME}/bin
 ADD https://archive.apache.org/dist/kafka/${KAFKA_VERSION}/${KAFKA_FILE_VERSION}.tgz /usr/src/
 
 # Install
-RUN tar -xzf /usr/src/${KAFKA_FILE_VERSION}.tgz -C /opt
+RUN tar -xzf /usr/src/${KAFKA_FILE_VERSION}.tgz -C /opt \
+ && ln -s /opt/${KAFKA_FILE_VERSION} ${KAFKA_HOME} \
+ && rm -rf /usr/src/${KAFKA_FILE_VERSION}.tgz
 
-# Cleaner link
-RUN ln -s /opt/${KAFKA_FILE_VERSION} ${KAFKA_HOME}
-
-# Cleanup src files
-RUN rm -rf /usr/src/${KAFKA_FILE_VERSION}.tgz
-
-# Add start file
+# Add files
 ADD start-kafka.sh /usr/bin/start-kafka.sh
+ADD create-topics.sh /usr/bin/create-topics.sh
 
 # Copy helpers
 COPY helpers/overrides /opt/overrides
-COPY helpers/scripts /opt/kafka-helper-scripts
 
 VOLUME ["/kafka"]
 

@@ -10,3 +10,11 @@ start:
 	docker-compose up
 
 
+stop:
+	docker-compose down
+
+
+clean:
+	docker volume rm spark-streaming-kafka-zeppelin_kafka_kafka1
+	docker volume rm spark-streaming-kafka-zeppelin_kafka_kafka2
+	docker volume rm spark-streaming-kafka-zeppelin_kafka_zookeeper
